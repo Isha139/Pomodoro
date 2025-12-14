@@ -20,7 +20,7 @@ It features **dark & light video themes**, **focus music**, **break music**, and
 ## 🚀 Live Demo
 
 👉 **Live Website:**  
-https://your-username.github.io/pomodoro/
+https://isha139.github.io/Pomodoro/
 ---
 ## 🛠 Tech Stack
 
