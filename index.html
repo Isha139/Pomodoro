@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pomodoro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body data-theme="dark">
+
+  <!-- BACKGROUND -->
+  <video id="bgVideo" class="bg-video" autoplay muted loop playsinline>
+    <source src="videos/dark.mp4" type="video/mp4">
+  </video>
+
+  <!-- TOP ICONS -->
+  <div class="top-icons left">
+    <span class="material-symbols-outlined" id="theme-toggle">light_mode</span>
+  </div>
+
+  <div class="top-icons right">
+    <span class="material-symbols-outlined clock-icon">schedule</span>
+    <span class="material-symbols-outlined music-icon" id="music-toggle">music_note</span>
+  </div>
+
+  <!-- APP -->
+  <div class="app-container">
+
+    <h1>Pomodoro</h1>
+
+    <div class="app-message">Click a timer to start</div>
+
+    <div class="wb-timer">
+      <div class="wb-section work">
+        <div class="wb-label">WORK</div>
+        <div class="wb-time work-time">
+          <span class="minutes">25</span>:<span class="seconds">00</span>
+        </div>
+      </div>
+
+      <div class="wb-section break">
+        <div class="wb-label">BREAK</div>
+        <div class="wb-time break-time">05:00</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="neo-btn btn-restart">Reset</button>
+    </div>
+
+  </div>
+
+  <!-- TIME POPOVER -->
+  <div class="time-popover hidden" id="time-popover">
+    <div class="time-row">
+      <span>WORK</span>
+      <button data-type="work" data-dir="-">−</button>
+      <button data-type="work" data-dir="+">+</button>
+    </div>
+    <div class="time-row">
+      <span>BREAK</span>
+      <button data-type="break" data-dir="-">−</button>
+      <button data-type="break" data-dir="+">+</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

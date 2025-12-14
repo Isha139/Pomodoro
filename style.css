@@ -1,0 +1,235 @@
+/* ================= BASE ================= */
+
+html {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* ================= THEME ROOT ================= */
+
+body[data-theme="dark"] {
+  color: #f1f1f1;
+  --glass-border: rgba(160, 210, 255, 0.45);
+  --glass-glow: rgba(140, 200, 255, 0.35);
+}
+
+body[data-theme="light"] {
+  color: #1e293b;
+}
+
+/* ================= OVERLAYS ================= */
+
+body[data-theme="dark"]::before,
+body[data-theme="light"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+body[data-theme="dark"]::before {
+  background: rgba(10, 15, 25, 0.75);
+}
+
+body[data-theme="light"]::before {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ================= LAYOUT ================= */
+
+.app-container {
+  width: 320px;
+  margin: 12px auto;
+  padding: 16px;
+}
+
+.app-message {
+  margin: 10px auto 16px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  padding: 12px 18px;
+  border-radius: 16px;
+  text-transform: uppercase;
+}
+
+/* ================= TIMER ================= */
+
+.wb-timer {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+body[data-theme="dark"] .wb-timer {
+  background: rgba(30, 45, 70, 0.45);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 0 18px var(--glass-glow),
+    inset 0 0 12px rgba(140, 200, 255, 0.2);
+}
+
+body[data-theme="light"] .wb-timer {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(80, 110, 160, 0.45);
+  box-shadow:
+    0 10px 22px rgba(60, 90, 140, 0.35),
+    inset 0 0 10px rgba(255, 255, 255, 0.45);
+}
+
+.wb-section {
+  flex: 1;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body[data-theme="dark"] .wb-section.work {
+  background: rgba(70, 110, 160, 0.55);
+}
+
+body[data-theme="dark"] .wb-section.break {
+  background: rgba(30, 45, 70, 0.55);
+}
+
+body[data-theme="light"] .wb-section.work {
+  background: rgba(120, 150, 190, 0.85);
+}
+
+body[data-theme="light"] .wb-section.break {
+  background: rgba(210, 220, 235, 0.95);
+}
+
+.wb-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.wb-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ================= BUTTON ================= */
+
+.neo-btn {
+  padding: 14px 34px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 18px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body[data-theme="dark"] .neo-btn {
+  color: #e8f4ff;
+  background: rgba(40, 60, 90, 0.4);
+  border: 1px solid rgba(140, 200, 255, 0.6);
+  box-shadow:
+    0 0 14px rgba(120, 180, 255, 0.35),
+    inset 0 0 12px rgba(120, 180, 255, 0.2);
+}
+
+body[data-theme="light"] .neo-btn {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(80, 110, 160, 0.45);
+}
+
+.neo-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= TOP ICONS ================= */
+
+.top-icons {
+  position: fixed;
+  top: 18px;
+  display: flex;
+  gap: 16px;
+  z-index: 1000;
+}
+
+.top-icons.left { left: 22px; }
+.top-icons.right { right: 22px; }
+
+.top-icons span {
+  width: 36px;
+  height: 36px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ================= TIME POPOVER ================= */
+
+.time-popover {
+  position: fixed;
+  top: 60px;
+  right: 22px;
+  width: 180px;
+  padding: 14px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+body[data-theme="dark"] .time-popover {
+  background: rgba(30, 45, 70, 0.55);
+  border: 1px solid var(--glass-border);
+}
+
+body[data-theme="light"] .time-popover {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(80, 110, 160, 0.45);
+}
+
+.time-popover.hidden {
+  display: none;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.time-row button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
